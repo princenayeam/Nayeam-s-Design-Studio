@@ -30,6 +30,10 @@ export default function HomePage() {
   const [journalData, setJournalData] = useState<any[]>([]);
   const [recentBookings, setRecentBookings] = useState<any[]>([]);
 
+  // Spring animations for kinetic typography (must be at top level)
+  const scaleY = useSpring(1, { stiffness: 100, damping: 15 });
+  const scaleX = useSpring(1, { stiffness: 100, damping: 15 });
+
   // Auto-setup on component mount
   useEffect(() => {
     const checkAndRunSetup = async () => {
@@ -315,16 +319,16 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: [0.4, 0, 0.2, 1] }}
               >
-                <motion.h1 
+                <motion.h1
                   className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-foreground leading-[1.1] tracking-tight"
                   style={{
-                    scaleY: useSpring(1, { stiffness: 100, damping: 15 }),
-                    scaleX: useSpring(1, { stiffness: 100, damping:15 })
+                    scaleY,
+                    scaleX
                   }}
                 >
                   Nayeam's
                   <br />
-                  <motion.span 
+                  <motion.span
                     className="block text-muted-foreground text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-3 sm:mt-4"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
