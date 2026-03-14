@@ -39,14 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local files
 local-*
 .claude
 .z-ai-config
 dev.log
 test
 prompt
-
 server.log
-# Skills directory
-/skills/.zscripts/
+.zscripts/
 *.out.log
+
+# Skills directory
+/skills/
+
+# Upload directory (temporary files)
+/upload/
